@@ -39,7 +39,7 @@ const updatePatient = (
   if (patient.infected === true){
 updatedPatient.daysInfected += 1
   }
-  if (patient.daysInfected === 4){
+  if (patient.daysInfected === 3){
     updatedPatient.quarantined = true
   }
   if (patient.quarantined === true){
@@ -47,7 +47,7 @@ updatedPatient.daysInfected += 1
       }
       if (patient.daysQuarantined === 4){
         updatedPatient.quarantined = false
-        updatePatient.infected = false
+        updatedPatient.infected = false
       }
 
   return updatedPatient;
