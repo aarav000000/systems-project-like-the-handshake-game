@@ -3,6 +3,9 @@ export type Patient = {
   x: number;
   y: number;
   infected: boolean;
+  quarantined: boolean;
+  daysInfected: number;
+  daysQuarantined: number;
 };
 
 export type SimulationParameters = {  
@@ -10,7 +13,6 @@ export type SimulationParameters = {
 };
 
 export const defaultSimulationParameters: SimulationParameters = {
-  distanceThreshold: 5,
-  movement: 5,
   infectionChance: 5,
 };
+

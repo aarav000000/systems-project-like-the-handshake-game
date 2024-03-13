@@ -10,6 +10,9 @@ export const createPopulation = (size = 1600) => {
       x: (100 * (i % sideSize)) / sideSize, // X-coordinate within 100 units
       y: (100 * Math.floor(i / sideSize)) / sideSize, // Y-coordinate scaled similarly
       infected: false,
+      quarantined: false,
+      daysInfected: 0,
+      daysQuarantined: 0,
     });
   }
   // Infect patient zero...
@@ -30,9 +33,23 @@ const updatePatient = (
   // IF we are NOT sick, see if our neighbors are sick...
   // choose a partner
   const partner = population[Math.floor(Math.random() * population.length)];
-  if (partner.infected && 100*Math.random() < params.infectionChance) {          
+  if (partner.infected && !partner.quarantined && 100*Math.random() < params.infectionChance) {          
     updatedPatient = { ...patient, infected : true };
   }   
+  if (patient.infected === true){
+updatedPatient.daysInfected += 1
+  }
+  if (patient.daysInfected === 4){
+    updatedPatient.quarantined = true
+  }
+  if (patient.quarantined === true){
+    updatedPatient.daysQuarantined += 1
+      }
+      if (patient.daysQuarantined === 4){
+        updatedPatient.quarantined = false
+        updatePatient.infected = false
+      }
+
   return updatedPatient;
 };
 

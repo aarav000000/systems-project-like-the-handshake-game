@@ -8,12 +8,22 @@ import { createPopulation, updatePopulation } from "./diseaseModel";
 import { LineChart, Line, YAxis, XAxis } from "recharts";
 
 const Patient: FC<{ patient: Patient }> = ({ patient }) => {
+  const getFace =() =>{ 
+    if (patient.infected === true) {
+      if (patient.quarantined === true){
+        return "😷"
+      }
+      else { return "🤢";}
+    } else {
+      return "😀"
+    }
+  }
   return (
     <div
       className="patient"
       style={{ left: `${patient.x}%`, top: `${patient.y}%` }}
     >
-      {patient.infected ? "🤢" : "😀"}
+      {getFace()}
     </div>
   );
 };
