@@ -165,6 +165,7 @@ const App: FC = () => {
           Healthy = 😀<br></br>
           Sick = 🤢<br></br>
           Quarantine = 😷<br></br>
+          This model is a realistic simulation of Covid-19. The population begins with a set population amound that can be changed with a slider. A random person is selected as patient zero and is infected with Covid-19. Next,  the infected person 
           </h1></div>
         </div>
 
