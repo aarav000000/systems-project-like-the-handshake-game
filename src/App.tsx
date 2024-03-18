@@ -131,7 +131,7 @@ const App: FC = () => {
 
   return (
     <div>
-      <h1>My Systems Model</h1>
+      <h1>Covid-19 Systems Model</h1>
       Population: {population.length}. Infected:{" "}
       {population.filter((p) => p.infected).length}
       <button onClick={runTurn}>Next turn...</button>
@@ -159,12 +159,21 @@ const App: FC = () => {
           <button onClick={() => setLineToGraph("newInfections")}>
             New Infections
           </button>
+         
+          <div className='legend'> <h1>
+            <br></br>
+          Healthy = 😀<br></br>
+          Sick = 🤢<br></br>
+          Quarantine = 😷<br></br>
+          </h1></div>
         </div>
+
         <div className="world">
           {population.map((patient) => (
             <Patient key={patient.id} patient={patient} />
           ))}
         </div>
+
       </section>
       <table>
         <tr>

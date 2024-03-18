@@ -6,6 +6,8 @@ export type Patient = {
   quarantined: boolean;
   daysInfected: number;
   daysQuarantined: number;
+  coolDown: boolean;
+  coolDownDays: number;
 };
 
 export type SimulationParameters = {  

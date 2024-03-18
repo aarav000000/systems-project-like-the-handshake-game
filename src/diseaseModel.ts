@@ -13,6 +13,8 @@ export const createPopulation = (size = 1600) => {
       quarantined: false,
       daysInfected: 0,
       daysQuarantined: 0,
+      coolDown: false,
+      coolDownDays: 0
     });
   }
   // Infect patient zero...
@@ -33,21 +35,30 @@ const updatePatient = (
   // IF we are NOT sick, see if our neighbors are sick...
   // choose a partner
   const partner = population[Math.floor(Math.random() * population.length)];
-  if (partner.infected && !partner.quarantined && 100*Math.random() < params.infectionChance) {          
+  if (partner.infected && !partner.quarantined && !partner.coolDown && 100*Math.random() < params.infectionChance) {          
     updatedPatient = { ...patient, infected : true };
   }   
   if (patient.infected === true){
 updatedPatient.daysInfected += 1
   }
-  if (patient.daysInfected === 3){
+  if (patient.daysInfected === 4){
     updatedPatient.quarantined = true
   }
   if (patient.quarantined === true){
     updatedPatient.daysQuarantined += 1
       }
-      if (patient.daysQuarantined === 4){
-        updatedPatient.quarantined = false
+      if (patient.daysQuarantined === 5){
+         updatedPatient.quarantined = false
         updatedPatient.infected = false
+        updatedPatient.daysInfected = 0
+        updatedPatient.daysQuarantined = 0
+        updatedPatient.coolDown = true
+      }
+      if (patient.coolDown === true){
+        updatedPatient.coolDownDays += 1
+      }
+      if (patient.coolDownDays === 10){
+        updatedPatient.coolDown = false
       }
 
   return updatedPatient;
