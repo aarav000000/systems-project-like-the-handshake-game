@@ -17,9 +17,12 @@ export const createPopulation = (size = 1600) => {
       coolDownDays: 0
     });
   }
-  // Infect patient zero...
-  let patientZero = population[Math.floor(Math.random() * size)];
-  patientZero.infected = true;
+  // Infect X patients...
+  for (let i=0; i < 5; i++) {
+    // Infect patient zero...
+    let patientZero = population[Math.floor(Math.random() * size)];
+    patientZero.infected = true;
+  }
   return population;
 };
 
@@ -48,7 +51,7 @@ updatedPatient.daysInfected += 1
     updatedPatient.daysQuarantined += 1
       }
       if (patient.daysQuarantined === 5){
-         updatedPatient.quarantined = false
+        updatedPatient.quarantined = false
         updatedPatient.infected = false
         updatedPatient.daysInfected = 0
         updatedPatient.daysQuarantined = 0

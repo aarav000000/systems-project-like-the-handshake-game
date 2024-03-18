@@ -132,6 +132,7 @@ const App: FC = () => {
   return (
     <div>
       <h1>Covid-19 Systems Model</h1>
+
       Population: {population.length}. Infected:{" "}
       {population.filter((p) => p.infected).length}
       <button onClick={runTurn}>Next turn...</button>
