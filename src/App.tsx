@@ -131,7 +131,9 @@ const App: FC = () => {
 
   return (
     <div>
-      <h1>Covid-19 Systems Model</h1>
+      <h1>Covid-19 Systems Model<br></br></h1>
+     <p> This model is a realistic simulation of Covid-19. The population begins with a set population amount that can be changed with a slider. A random person is selected as patient zero and is infected with Covid-19. Next,  the infected person selects a random partner to interact with. Then, the infection chance is set with a bar from 0-100, 100 representing that every time a healthy interact with an infected, they get sick. Once a person is sick, it takes them 3 turns to go into quarantine. The patient then goes from infectet to quarantined for the next 5 days. After the five days are over, the person is now healthy again.
+     </p>
 
       Population: {population.length}. Infected:{" "}
       {population.filter((p) => p.infected).length}
@@ -166,7 +168,7 @@ const App: FC = () => {
           Healthy = 😀<br></br>
           Sick = 🤢<br></br>
           Quarantine = 😷<br></br>
-          This model is a realistic simulation of Covid-19. The population begins with a set population amount that can be changed with a slider. A random person is selected as patient zero and is infected with Covid-19. Next,  the infected person selects a random partner to interact with. Then, the infection chance is set with a bar from 0-100, 100 representing that every time a healthy interact with an infected, they get sick. Once a person is sick, it takes them 3 turns to go into quarantine. The patient then goes from infectet to quarantined for the next 5 days. After the five days are over, the person is now healthy again. 
+
           </h1></div>
         </div>
 
